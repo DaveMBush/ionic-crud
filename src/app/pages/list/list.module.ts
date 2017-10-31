@@ -18,8 +18,8 @@ const reducers: ActionReducerMap<ListState> = {
     ListComponent
   ],
   imports: [
-    // StoreModule.forFeature('list', reducers),
-    // EffectsModule.forFeature([ListEffects]),
+    StoreModule.forFeature('list', reducers),
+    EffectsModule.forFeature([ListEffects]),
     CommonModule,
     IonicPageModule.forChild(ListComponent)
   ],

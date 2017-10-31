@@ -1,6 +1,4 @@
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ListEffects } from './pages/list/list.effects';
-import { ListReducer } from './pages/list/list.reducer';
 import { SharedModule } from './shared/shared.module';
 import { ListModule } from './pages/list/list.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,7 +17,7 @@ import { AppComponent } from './app.component';
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ list: ListReducer }),
+    StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     IonicModule.forRoot(AppComponent),
     BrowserModule,
