@@ -1,3 +1,4 @@
+import { AlertController } from 'ionic-angular';
 import { FilterReducer } from './filter.reducer';
 import { ListReducer } from './list.reducer';
 import { ListState } from './list-state';
@@ -25,6 +26,7 @@ const reducers: ActionReducerMap<ListState> = {
     CommonModule,
     IonicPageModule.forChild(ListComponent)
   ],
-  declarations: [ListComponent]
+  declarations: [ListComponent],
+  providers: []
 })
 export class ListModule { }

@@ -14,20 +14,24 @@
     </ion-grid>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <ion-item-sliding>
-    <ion-item *ngFor="let contact of (contacts | async)">
-      <ion-grid>
-        <ion-row>
-          <div fxFlex>{{contact.firstName}}</div>
-          <div fxFlex>{{contact.lastName}}</div>
-          <div fxFlex="80px">{{contact.dateOfBirth | date:'shortDate'}}</div>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-    <ion-item-options side="right">
-      <button ion-button>Delete</button>
-    </ion-item-options>
-  </ion-item-sliding>
+  <ion-list>
+    <ion-item-sliding *ngFor="let contact of (contacts | async)">
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <div fxFlex>{{contact.firstName}}</div>
+            <div fxFlex>{{contact.lastName}}</div>
+            <div fxFlex="80px">{{contact.dateOfBirth | date:'shortDate'}}</div>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button (click)="delete($event, contact.id)">
+          <ion-icon name="trash"></ion-icon>
+          <div>Delete</div>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
