@@ -1,3 +1,4 @@
+import { ListState } from './list-state';
 import { FilterReducer } from './filter.reducer';
 import { ListReducer } from './list.reducer';
 import { IonicPageModule } from 'ionic-angular/module';
