@@ -1,7 +1,5 @@
-import { AlertController } from 'ionic-angular';
 import { FilterReducer } from './filter.reducer';
 import { ListReducer } from './list.reducer';
-import { ListState } from './list-state';
 import { IonicPageModule } from 'ionic-angular/module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

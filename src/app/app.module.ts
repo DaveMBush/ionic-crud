@@ -1,3 +1,4 @@
+import { EditModule } from './pages/edit/edit.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { ListModule } from './pages/list/list.module';
@@ -25,6 +26,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserModule,
     SharedModule,
     ListModule,
+    EditModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

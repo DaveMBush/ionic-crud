@@ -1,14 +1,16 @@
+import { EditComponent } from '../edit/edit.component';
 import { NavController, AlertController } from 'ionic-angular';
 import { Observable } from 'rxjs/Rx';
 import { Contact } from '../../shared/contact';
 import { AppState } from '../../app-state';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as List from './list.actions';
 
 @Component({
   selector: 'app-list',
-  templateUrl: './list.component.html'
+  templateUrl: './list.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListComponent implements OnInit {
   contacts: Observable<ReadonlyArray<Contact>>;
@@ -23,6 +25,9 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  ionViewDidEnter(): void {
     this.store.dispatch(new List.List());
   }
 
@@ -47,11 +52,11 @@ export class ListComponent implements OnInit {
   }
 
   edit(id: number): void {
-    // this.router.navigate(['/edit', id]);
+    this.navCtrl.push(EditComponent, { id: id })
   }
 
   add(): void {
-    // this.router.navigate(['/add']);
+    this.navCtrl.push(EditComponent, { id: -1 });
   }
 
 }

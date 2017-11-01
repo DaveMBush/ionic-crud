@@ -1,3 +1,33 @@
-<p>
-  edit works!
-</p>
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Ionic Demo - Edit
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list [formGroup]="form">
+    <ion-item>
+      <input type="hidden" formControlName="id">
+      <ion-input placeholder="First Name" formControlName="firstName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Last Name" formControlName="lastName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-datetime displayFormat="MM/DD/YYYY" placeholder="Birth Date" formControlName="dateOfBirth"></ion-datetime>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row justify-content-end>
+        <ion-col>
+          <button (click)="save()" ion-button style="float:right" [disabled]="!form.valid">
+            <ion-icon name="filing">&nbsp;</ion-icon>Save</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

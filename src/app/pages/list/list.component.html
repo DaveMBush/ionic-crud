@@ -1,15 +1,25 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      Ionic Blank
+      Ionic Demo - List
+      <button (click)="add()" ion-button style="float: right" color="light">
+        <ion-icon name="add"></ion-icon>
+      </button>
+
     </ion-title>
   </ion-navbar>
   <ion-toolbar color="secondary" padding>
     <ion-grid>
       <ion-row>
-        <div fxFlex>First</div>
-        <div fxFlex>Last</div>
-        <div fxFlex="80px">DOB</div>
+        <div fxFlex>
+          <b>First</b>
+        </div>
+        <div fxFlex>
+          <b>Last</b>
+        </div>
+        <div fxFlex="80px">
+          <b>DOB</b>
+        </div>
       </ion-row>
     </ion-grid>
   </ion-toolbar>
@@ -17,7 +27,7 @@
 <ion-content>
   <ion-list>
     <ion-item-sliding *ngFor="let contact of (contacts | async)">
-      <ion-item>
+      <button ion-item (click)="edit(contact.id)">
         <ion-grid>
           <ion-row>
             <div fxFlex>{{contact.firstName}}</div>
@@ -25,7 +35,7 @@
             <div fxFlex="83px">{{contact.dateOfBirth | date:'shortDate'}}</div>
           </ion-row>
         </ion-grid>
-      </ion-item>
+      </button>
       <ion-item-options side="right">
         <button ion-button (click)="delete($event, contact.id)">
           <ion-icon name="trash"></ion-icon>
