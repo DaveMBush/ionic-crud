@@ -8,6 +8,7 @@ import { ListComponent } from './list.component';
 import { ActionReducerMap, StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { ListEffects } from './list.effects';
+import { FlexLayoutModule } from '@angular/flex-layout';
 const reducers: ActionReducerMap<ListState> = {
   list: ListReducer,
   filter: FilterReducer
@@ -20,6 +21,7 @@ const reducers: ActionReducerMap<ListState> = {
   imports: [
     StoreModule.forFeature('list', reducers),
     EffectsModule.forFeature([ListEffects]),
+    FlexLayoutModule,
     CommonModule,
     IonicPageModule.forChild(ListComponent)
   ],

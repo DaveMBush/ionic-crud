@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { AppComponent } from './app.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { AppComponent } from './app.component';
   imports: [
     FormsModule,
     ReactiveFormsModule,
+    FlexLayoutModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     IonicModule.forRoot(AppComponent),

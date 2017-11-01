@@ -7,7 +7,7 @@ let contacts: ReadonlyArray<Contact> = [
         id: 1,
         firstName: 'Dave',
         lastName: 'Bush',
-        dateOfBirth: new Date(2000, 0, 15)
+        dateOfBirth: new Date(2000, 9, 15)
     },
     {
         id: 2,

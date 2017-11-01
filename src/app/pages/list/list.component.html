@@ -1,15 +1,33 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
       Ionic Blank
     </ion-title>
   </ion-navbar>
+  <ion-toolbar color="secondary" padding>
+    <ion-grid>
+      <ion-row>
+        <div fxFlex>First</div>
+        <div fxFlex>Last</div>
+        <div fxFlex="80px">DOB</div>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the
-    <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <ion-item-sliding>
+    <ion-item *ngFor="let contact of (contacts | async)">
+      <ion-grid>
+        <ion-row>
+          <div fxFlex>{{contact.firstName}}</div>
+          <div fxFlex>{{contact.lastName}}</div>
+          <div fxFlex="80px">{{contact.dateOfBirth | date:'shortDate'}}</div>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button>Delete</button>
+    </ion-item-options>
+  </ion-item-sliding>
 </ion-content>
