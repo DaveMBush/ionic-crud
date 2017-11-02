@@ -3,7 +3,7 @@ import { AlertController, NavController, TextInput } from 'ionic-angular';
 import { Observable } from 'rxjs/Rx';
 import { Contact } from '../../shared/contact';
 import { AppState } from '../../app-state';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as List from './list.actions';
 import * as Filter from './filter.actions';
@@ -19,8 +19,7 @@ export class ListComponent implements OnInit {
 
   constructor(private store: Store<AppState>,
     private navCtrl: NavController,
-    private alertCtrl: AlertController,
-    private cd: ChangeDetectorRef
+    private alertCtrl: AlertController
   ) {
     this.contacts = store.select(
       (x: AppState) => x.list.list

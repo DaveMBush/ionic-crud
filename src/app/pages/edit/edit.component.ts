@@ -1,13 +1,13 @@
 import { FormGroup } from '@angular/forms';
 import { EditService } from './edit.service';
 import { NavController, ToastController } from 'ionic-angular';
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [EditService]
+  // can't use onPush because components don't support it
 })
 export class EditComponent implements OnInit, OnDestroy {
   get form(): FormGroup {
