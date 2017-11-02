@@ -1,11 +1,12 @@
 import { EditComponent } from '../edit/edit.component';
-import { NavController, AlertController } from 'ionic-angular';
+import { AlertController, NavController, TextInput } from 'ionic-angular';
 import { Observable } from 'rxjs/Rx';
 import { Contact } from '../../shared/contact';
 import { AppState } from '../../app-state';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as List from './list.actions';
+import * as Filter from './filter.actions';
 
 @Component({
   selector: 'app-list',
@@ -14,6 +15,7 @@ import * as List from './list.actions';
 })
 export class ListComponent implements OnInit {
   contacts: Observable<ReadonlyArray<Contact>>;
+  @ViewChild('filter') filter: TextInput;
 
   constructor(private store: Store<AppState>,
     private navCtrl: NavController,
@@ -27,6 +29,20 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // since this page never goes away, we only need this code once.
+  ionViewDidLoad(): void {
+    this.store.select((x: AppState) => x.list.filter)
+      .first()
+      .subscribe((v: string) => this.filter.getNativeElement().children[0].value = v);
+    Observable.fromEvent(this.filter.getNativeElement().children[0], 'keyup')
+      .debounceTime(150)
+      .subscribe((): void => {
+        this.store.dispatch(new Filter.Set(this.filter.getNativeElement().children[0].value))
+        this.store.dispatch(new List.List());
+      });
+  }
+
+  // make sure we get the current list when we come back
   ionViewDidEnter(): void {
     this.store.dispatch(new List.List());
   }

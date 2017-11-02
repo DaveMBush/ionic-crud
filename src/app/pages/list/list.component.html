@@ -2,14 +2,20 @@
   <ion-navbar color="primary">
     <ion-title>
       Ionic Demo - List
-      <button (click)="add()" ion-button style="float: right" color="light">
-        <ion-icon name="add"></ion-icon>
-      </button>
-
     </ion-title>
   </ion-navbar>
-  <ion-toolbar color="secondary" padding>
+  <ion-toolbar>
     <ion-grid>
+      <ion-row>
+        <ion-input #filter fxFlex placeholder="Filter users"></ion-input>
+        <button fxFlex="44px" (click)="add()" ion-button small color="secondary">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+  <ion-toolbar color="light" padding style="padding-top: 0; padding-bottom: 0; min-height: 30px;">
+    <ion-grid style="padding-top: 0px; padding-bottom: 0px;">
       <ion-row>
         <div fxFlex>
           <b>First</b>
@@ -27,7 +33,7 @@
 <ion-content>
   <ion-list>
     <ion-item-sliding *ngFor="let contact of (contacts | async)">
-      <button ion-item (click)="edit(contact.id)">
+      <button detail-none ion-item (click)="edit(contact.id)">
         <ion-grid>
           <ion-row>
             <div fxFlex>{{contact.firstName}}</div>

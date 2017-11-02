@@ -8,7 +8,7 @@
 <ion-content>
   <ion-list [formGroup]="form">
     <ion-item>
-      <input type="hidden" formControlName="id">
+      <input #filter type="hidden" formControlName="id">
       <ion-input placeholder="First Name" formControlName="firstName"></ion-input>
     </ion-item>
     <ion-item>
