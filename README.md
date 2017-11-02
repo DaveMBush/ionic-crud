@@ -1,26 +1,13 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+This is an ionic crud demo just to show that I can do it.
 
-## How to use this template
+You can view the resulting application at https://davembush.github.io/ionic-crud/
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+The app will always start fresh with 2 records.
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+You can:
+1) Delete a record by swiping to the left
+2) Add a new record by clicking the + button, fill in the form, save
+3) Edit an existing record by "clicking" a row, change, save.
+4) To return to the list screen from the edit screen, click the back arrow
 
-### With the Ionic CLI:
-
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
-
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
-```
-
-Then, to run it, cd into `myBlank` and run:
-
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
-
-Substitute ios for android if not on a Mac.
-
+Best viewed on a phone.
